@@ -162,8 +162,9 @@ class Child(tk.Toplevel):
         self.entry_salary = ttk.Entry(self)
         self.entry_salary.place(x=200, y=140)
 
-        #self.btn_cancel = ttk.Button(self, text='Закрыть', command=self.destroy())
-        #self.btn_cancel.place(x=300, y=170)
+        self.btn_cancel = ttk.Button(self, text='Закрыть', command=self.destroy)
+        self.btn_cancel.place(x=300, y=170)
+        self.btn_cancel.bind('<Button-1>', lambda event: self.destroy())
 
         self.btn_ok = ttk.Button(self, text='Добавить')
         self.btn_ok.place(x=220, y=170)
@@ -173,6 +174,7 @@ class Child(tk.Toplevel):
                           self.entry_tel.get(),
                           self.entry_email.get(),
                           self.entry_salary.get()))
+        self.btn_ok.bind('<Button-1>', lambda event: self.destroy(), add='+')
 
 
 # класс изм контакта
